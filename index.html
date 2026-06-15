@@ -1,4 +1,4 @@
-the <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -863,6 +863,26 @@ the <!DOCTYPE html>
     }
 
     /* ============================================================
+       Embedded chat widget
+       ============================================================ */
+    .chat-embed {
+      max-width: 760px;
+      margin: clamp(36px, 5vw, 56px) auto 0;
+      background: var(--paper-card);
+      border: 1px solid var(--rule);
+      border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;          /* clip the embedded widget to the rounded frame */
+    }
+    /* The third-party chat element renders its own UI; give it the full
+       width and a reserved height so the page doesn't jump while it loads. */
+    .chat-embed great-experts-chat {
+      display: block;
+      width: 100%;
+      min-height: 460px;
+    }
+
+    /* ============================================================
        Footer
        ============================================================ */
     .site-footer {
@@ -1214,14 +1234,18 @@ the <!DOCTYPE html>
         </div>
       </section>
 
-      <!-- ============ SAFETY NOTE ============ -->
+      <!-- ============ ASK / CHAT INTRO ============ -->
       <section class="note-section shell">
         <div class="note" data-reveal>
           <div class="note__icon">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
           </div>
-          <h3 class="note__title">A gentle, honest note</h3>
-          <p class="note__text">Self-hypnosis is a tool for self-regulation and everyday calm, and it works beautifully alongside professional care. It isn't a replacement for therapy or medical treatment for deep-seated or clinical concerns. If something runs deep, we'll talk openly about the right support for you - there's no pressure here, ever.</p>
+          <h3 class="note__title">Have a question first?</h3>
+          <p class="note__text">Not sure which path fits, or curious how a session actually feels? Ask me anything right here - gently, and in your own time. There's no pressure, and nothing's too small.</p>
+        </div>
+        <div class="chat-embed">
+          <great-experts-chat mode="inline" widget-key="ge_9f326911f2"></great-experts-chat>
+          <script async src="https://frontend-staging-6b3f.up.railway.app/widget/widget.js"></script>
         </div>
       </section>
 
@@ -1379,6 +1403,5 @@ the <!DOCTYPE html>
       }
     })();
   </script>
-
 </body>
 </html>
